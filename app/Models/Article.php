@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    use HasFactory;
+    protected $fillable = ['title', 'exerpt', 'body'];
+   // protected $guarded = []; //no protection
+
 }

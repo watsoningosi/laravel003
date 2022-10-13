@@ -23,18 +23,20 @@ class ArticlesController extends Controller
 
     public function store(Request $request)
     {
-        request()->validate([
-            //'title' =>['required','min:3','max:255']
+            // request()->validate([
+           //'title' =>['required','min:3','max:255']
+           //'title' => 'required',
+           // 'exerpt' => 'required',
+           // 'body' => 'required'
+          //]);
+
+        Article::create(request()->validate([
             'title' => 'required',
             'exerpt' => 'required',
             'body' => 'required'
-        ]);
-        $article = new Article();
 
-        $article->title = request('title');
-        $article->exerpt = request('exerpt');
-        $article->body = request('body');
-        $article->save();
+        ]));
+
 
         return redirect('/pages/create_article');
     }
@@ -53,17 +55,12 @@ class ArticlesController extends Controller
     }
     public function update(Article  $article)
     {
-        request()->validate([
+       $article->update(request()->validate([
             //'title' =>['required','min:3','max:255']
             'title' => 'required',
             'exerpt' => 'required',
             'body' => 'required'
-        ]);
-
-        $article->title = request('title');
-        $article->exerpt = request('exerpt');
-        $article->body = request('body');
-        $article->save();
+        ]));
 
         return redirect('/pages/blog');
     }

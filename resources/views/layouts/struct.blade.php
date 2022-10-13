@@ -36,11 +36,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Home</a>
+                            <a class="{{ Request::path() === '/' ? 'active' : '' }} nav-link" href="/">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/blog">Blog</a>
+                            <a class="{{ Request::path() === '/pages/blog' ? 'active' : '' }} nav-link"
+                                href="pages/blog">Blog</a>
                         </li>
 
                         <li class="nav-item">
