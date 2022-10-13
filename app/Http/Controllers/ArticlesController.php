@@ -39,23 +39,19 @@ class ArticlesController extends Controller
         return redirect('/pages/create_article');
     }
 
-    public function show($id)
+    public function show(Article  $article)
+    // $article has match with routes/id ie Route::get('pages/{article}',ArticlesController@index)
     {
-        $article = Article::find($id);
-
+        // $article = Article::findOrFail($id);
         return view('pages.article', ['article' => $article]);
     }
 
-
-    public function edit($id)
+    public function edit(Article  $article)
     {
-        $article = Article::find($id);
 
         return view('pages.edit_post', compact('article'));
     }
-
-
-    public function update($id)
+    public function update(Article  $article)
     {
         request()->validate([
             //'title' =>['required','min:3','max:255']
@@ -63,8 +59,6 @@ class ArticlesController extends Controller
             'exerpt' => 'required',
             'body' => 'required'
         ]);
-
-        $article = Article::find($id);
 
         $article->title = request('title');
         $article->exerpt = request('exerpt');
