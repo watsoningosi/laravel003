@@ -9,7 +9,17 @@ class Article extends Model
 {
     protected $fillable = ['title', 'exerpt', 'body'];
     // protected $guarded = []; //no protection
-    public function user()
+    public function author()
     {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+
+    public function tags()
+    {
+        return $this->belongsTo(Tag::class);
     }
 }
+//many to many Relationship
+//article has many tags
+// tag has many articles  
