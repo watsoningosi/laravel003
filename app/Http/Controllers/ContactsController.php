@@ -22,13 +22,16 @@ class ContactsController extends Controller
 
     public function store(Request $request)
     {
-        $contact = new Contact;
-        $contact->name = request('name');
-        $contact->email = request('email');
-        $contact->phone = request('phone');
-        $contact->message = request('message');
-        $contact->save();
-        return redirect('/pages/contact');
+        Contact::create(request()->validate([
+
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'message' => 'required'
+
+        ]));
+
+        return back()->with('success', 'Your Contact has been submitted Successfully.');
     }
 
     /**

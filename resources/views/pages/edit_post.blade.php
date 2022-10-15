@@ -8,7 +8,12 @@
                 <div id="wrapper" class="col-md-9">
                     <div id="page">
                         <h1>Update Article </h1>
-
+                        @if (Session::has('success'))
+                            <div class="alert alert-success text-center">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                {{ Session::get('success') }}
+                            </div>
+                        @endif
                         <form method="post" action="/article/{{ $article->id }}">
                             @csrf
                             @method('put')
