@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $fillable = ['title', 'exerpt', 'body'];
-   // protected $guarded = []; //no protection
-
+    // protected $guarded = []; //no protection
+    public function user()
+    {
+    }
 }
