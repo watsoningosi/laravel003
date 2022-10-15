@@ -10,7 +10,11 @@
                     <p class="lorem_text">Posted On: {{ $article->created_at }}
                     </p>
                     <h2 class="most_text">{{ $article->title }}</h2>
-                    <p class="lorem_text">{{ $article->body }}</p>
+
+                    {!! $article->body !!}
+
+                    <br>
+
                 </div>
             </div>
         </div>
