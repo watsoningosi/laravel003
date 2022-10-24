@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('welcome', 'App\Http\Controllers\ArtViewController@index');
+
 Route::get('/', 'App\Http\Controllers\ArticlesController@index');
 
 Route::get('/pages/contact', 'App\Http\Controllers\ContactsController@index');
